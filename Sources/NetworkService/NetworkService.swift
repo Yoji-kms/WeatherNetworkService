@@ -7,9 +7,7 @@
 
 import Foundation
 
-public final class NetworkService {
-    @MainActor public static let shared = NetworkService()
-    
+public final class NetworkService: NSObject {
     private let label = "weather"
     
     public lazy var weatherKey: String? = {
