@@ -15,7 +15,7 @@ public final class NetworkService: NSObject {
         return "&appid=\(self.decode(array: key) ?? "")"
     }()
     
-    func getUrlBy(lat: Float, lon: Float) -> String {
+    public func getUrlBy(lat: Float, lon: Float) -> String {
         return "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&units=metric"
     }
     
