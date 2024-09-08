@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-    func handleAsDecodable <T: Decodable>() async -> T? {
+    public func handleAsDecodable <T: Decodable>() async -> T? {
         do {
             guard let url = URL(string: self) else {
                 return nil
