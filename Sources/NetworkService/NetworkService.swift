@@ -8,17 +8,17 @@
 import Foundation
 
 public final class NetworkService {
-    @MainActor static let shared = NetworkService()
+    @MainActor public static let shared = NetworkService()
     
-    let label = "weather"
+    private let label = "weather"
     
-    lazy var weatherKey: String? = {
+    public lazy var weatherKey: String? = {
         guard let key = self.getKeyFromKeychain(label: label) else { return nil }
         return "&appid=\(self.decode(array: key) ?? "")"
     }()
     
-    func getUrlBy(coordinates: Coordinates) -> String {
-        return "https://api.openweathermap.org/data/2.5/weather?lat=\(coordinates.lat)&lon=\(coordinates.lon)&units=metric"
+    func getUrlBy(lat: Float, lon: Float) -> String {
+        return "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&units=metric"
     }
     
     private func encode(key: String) {
